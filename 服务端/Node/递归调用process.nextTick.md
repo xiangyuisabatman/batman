@@ -1,0 +1,3 @@
+- 结论: 爆栈
+- 为什么: process.nextTick是将异步回调放到当前帧的末尾\io回调之前,如果nextTick过多,导致io回调不断延后,最后callback堆积太多.
+- 解决: 使用setImmediate, setImmediate是将异步回调放到下一帧,不影响io回调,不会造成callback堆积

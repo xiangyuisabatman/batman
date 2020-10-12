@@ -1,0 +1,39 @@
+#### 为什么不要在选项属性或回调上使用箭头函数
+因为箭头函数并没有this，this会作为变量一直向上级词法作用域查找，直至找到为止。
+
+---
+
+#### 计算属性和侦听器
+侦听器适用于数据变化时执行异步或开销较大的操作
+
+---
+
+#### v-if与v-for一起使用
+不推荐同时使用，当一起使用时，v-for具有比v-if更高的优先级
+
+---
+
+#### vue不能检测到的数组变化
+1. 利用索引直接设置一个数组项时（set）
+2. 当修改数组长度时（splice）
+
+---
+
+#### is="todo-item"
+在使用DOM模板时是十分必要的，这样做实现的效果与`<todo-item>`相同，但是可以避开一些潜在的浏览器解析错误。
+
+---
+
+#### passive、prevent
+不要把.passive和.prevent一起使用，因为.prevent将会被忽略，同时浏览器可能会向你展示一个警告。.passive会告诉浏览器你不想阻止事件的默认行为。`.passive`修饰符尤其能够提升移动端的性能，滚动行为将会立即触发，而不会等待onScroll完成
+
+---
+
+#### vue实例为什么不能直接挂载到html或body
+vue实例在初始化的时候,会覆盖所选节点.覆盖html或body,文档结构会错误.
+
+---
+
+#### vue-router监听路由变化方式
+- hash(window.addEventListener('hashchange', handle))
+- history(window.addEventListener('popstate', handle))

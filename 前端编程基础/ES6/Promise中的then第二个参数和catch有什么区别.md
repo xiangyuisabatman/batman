@@ -1,0 +1,3 @@
+1. reject是Promise的方法,then和catch是Promise实例方法
+2. Promise采用就近原则,如果Promise内部报错,则如果存在then第二个参数,则可以获取到错误,而catch获取不到
+3. then第二个参数获取不到then第一个参数里的错误,catch可以
