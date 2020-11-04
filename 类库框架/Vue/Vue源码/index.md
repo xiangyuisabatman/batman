@@ -58,6 +58,12 @@
 
 ---
 
+#### Vue.use
+- Vue.use方法接收一个plugin参数，然后使用installPlugins数组保存已经注册过的plugin
+- 首先保证plugin不被重复注册，然后将vue从函数参数中取出，将整个vue作为plugin的install方法的第一个参数
+- 接着判断是否存在install方法，存在则将赋值后的参数传入执行
+- 最后将所有的存在install方法的plugin交给installPlugins维护
+
 #### Vue.set
 - 对于数组: 通过splice添加进数组返回
 - 对于对象: 若已经存在,直接赋值返回.反之,则直接赋值并返回,并通过`defineReactive(ob.value, key, val)`把新添加的属性变为响应式对象,再手动触发依赖通知.
