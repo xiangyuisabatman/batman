@@ -37,3 +37,8 @@ vue实例在初始化的时候,会覆盖所选节点.覆盖html或body,文档结
 #### vue-router监听路由变化方式
 - hash(window.addEventListener('hashchange', handle))
 - history(window.addEventListener('popstate', handle))
+
+--- 
+
+### 组件中的data为什么是一个函数
+1. 函数作用域的原因，每个组件的data数据都应该是相互隔离，互不影响。声明成函数返回，这样在每次创建组件实例都会创建一个私有的数据空间，让各个组件实例维护各自的数据。

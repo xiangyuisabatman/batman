@@ -50,7 +50,7 @@
 ---
 
 #### nextTick
-1. 生成两个`microTimerFunc` `macroTimerFunc`函数,对于macro task的实现,优先检测是否支持原生的`setimmediate`,不知道再检测是否支持原生`MessageChannel`也不支持就会降级成`settimeout 0`;
+1. 生成两个`microTimerFunc` `macroTimerFunc`函数,对于macro task的实现,优先检测是否支持原生的`setimmediate`,不支持再检测是否支持原生`MessageChannel`也不支持就会降级成`settimeout 0`;
 2. 对于micro task,检测浏览器是否原生支持promise,不支持则指向macro task逻辑
 3. 先将传入的函数放到`callbacks`里,根据情况执行`microTimerFunc` `macroTimerFunc`函数.
 4. 最后执行flushCallbacks,遍历callbacks执行回调函数.
