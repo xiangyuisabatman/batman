@@ -1,6 +1,6 @@
 function _call(context) {
     context = context || window
-
+    // 用this来获取调用call的函数
     context.fn = this
 
     let args = [...arguments].slice(1)
