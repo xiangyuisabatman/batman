@@ -4,7 +4,7 @@
 ## 访问CDN原理
 1. 访问域名请求，通过DNS解析
 2. 其中的大部分查找DNS解析与正常DNS解析过程相似，下面是与正常DNS解析不同的
-3. 权威DNS查找到一条NAME字段权威哦"join.qq.com"的CNAME记录，该记录的Value字段为"join.qq.cdn.com"；并且还找到另一条“join.qq.cdn.com”的A记录，该记录的Value字段为GSLB（全局负载均衡系统）的IP地址
+3. 权威DNS查找到一条NAME字段权威如"join.qq.com"的CNAME记录，该记录的Value字段为"join.qq.cdn.com"；并且还找到另一条“join.qq.cdn.com”的A记录，该记录的Value字段为GSLB（全局负载均衡系统）的IP地址
 4. 本地DNS向GSLB发送DNS查询报文
 5. GSLB根据本地DNS的IP地址判断用户的大致位置，筛选出最佳地区且综合考量最优的SLB（本地负载均衡系统）的IP地址填入DNS回应报文。
 6. 本地DNS回复客户端的DNS请求，将上一步的IP地址作为最终结果回复给客户端
