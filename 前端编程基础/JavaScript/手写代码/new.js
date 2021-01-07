@@ -1,5 +1,5 @@
 function _new() {
-    let obj = new Object
+    let obj = new Object()
 
     Constructor = [].shift().call(arguments) //取出外部传入的构造器
 
