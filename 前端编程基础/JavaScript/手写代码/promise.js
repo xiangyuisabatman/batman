@@ -237,3 +237,40 @@ Promise.race([a, b, c]).then((data) => {
     console.log(data)
 })
 
+
+function asyncToGenerator(genFunc) {
+    return function() {
+        const gen = genFunc.apply(this, arguments)
+        return new Promise((resolve, reject) => {
+            
+            function step(key, arg) {
+                let genResult
+                try {
+                    genResult = gen[key](arg)
+                } catch (error) {
+                    return reject(error)
+                }
+                let {done, value} = genResult
+                if (done) {
+                    return resolve(value)
+                } else {
+                    return Promise.resolve(value).then(val => {
+                        step('next', val)
+                    }, (err) => {
+                        step('throw', err)
+                    })
+                }
+            }
+            step('next')
+        })
+    }
+}
+
+let test1 = asyncToGenerator(test)
+
+async function anv() {
+    let a = await test1()
+    console.log(a, 11)
+}
+anv()
+
