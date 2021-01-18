@@ -1,5 +1,5 @@
 1. 原理: 由Header,Payload,Signature三部分拼接组成
-    - Header:alg 属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）；typ 属性表示这个令牌（token）的类型（type），JWT 令牌统一写为 JWT.最后将上面的 JSON 对象使用 Base64URL 算法转成字符串。
+    - Header:alg 属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）；type 属性表示这个令牌（token）的类型（type），JWT 令牌统一写为 JWT.最后将上面的 JSON 对象使用 Base64URL 算法转成字符串。
     - Payload：包括过期时间没生效时间，签发时间，签发人等等。
     - Signature：对前两部分的签名，防止数据篡改。
 2. 校验原理：当服务器收到客户端的token后，解析前两部分得到header以及payload，并使用header中的算法与服务端本地私有secret进行签名，判断与jwt中携带的签名是否一致。

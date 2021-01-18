@@ -29,6 +29,5 @@ setTimeout(function() {
         console.log(7);
     });
 }, 0);
-
 // 1 3 5 4 2 6 7
 ```
