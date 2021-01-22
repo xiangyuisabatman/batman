@@ -7,7 +7,6 @@
     2. secure：仅在加密传输，指示浏览器仅仅在通过安全/加密连接才能使用该cookie。
     3. sameSite：Strict-完全禁止第三方Cookie，跨域不携带；Lax-大部分情况下不发送第三方Cookie，但是在导航到目标网址的Get请求除外；None-默认值，自动携带cookie。
 
-
 ### session
 1. session是保存在服务端，可以保存集群、数据库、文件中。
 

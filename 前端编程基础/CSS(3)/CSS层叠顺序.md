@@ -1,0 +1,1 @@
+## 从下到上：background/border-> z-index < 0 -> block块状水平盒子 -> float浮动盒子 -> inline/inline-block水平盒子 -> z-index:0/z-index:auto -> z-index > 0
