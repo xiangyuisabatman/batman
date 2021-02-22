@@ -1,3 +1,5 @@
+**为了解决各种浏览器事件同时触发时的排队问题**
+
 - macro-task(宏任务)(由宿主发起)：包括整体代码script，setTimeout,setInterval,I/O、UI 交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)
 - micro-task(微任务)(JavaScript发起)：promise, process.nextTick
 ![image](https://user-gold-cdn.xitu.io/2017/11/21/15fdcea13361a1ec?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
