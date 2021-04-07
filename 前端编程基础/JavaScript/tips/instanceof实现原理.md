@@ -1,5 +1,6 @@
 ```
 // 例如判断 x instanceof y
+// 判断x的prototype是否存在y的原型链上
 
 while (x.__proto__ !== null) {
     if(x.__proto__ === y.prototype) {
