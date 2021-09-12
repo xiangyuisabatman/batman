@@ -12,3 +12,12 @@ function _new() {
     return obj
 
 }
+
+
+function _new2(fn, args) {
+    let obj = Object.create(fn.prototype)
+
+    fn.apply(obj, [...args])
+
+    return obj
+}
