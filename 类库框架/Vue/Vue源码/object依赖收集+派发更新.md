@@ -14,6 +14,8 @@ getter中可以知道谁获取这个值,就说明这个谁依赖于这个值,所
 谁用到了数据,谁就是依赖,就为谁创建一个Watcher实例.在之后的数据变化时,不直接去通知依赖更新,而是通知依赖对应的Watcher实例,由Watcher实例去通知真正的视图.
 - Watcher实例有一个get方法,这个方法的作用是,把当前实例赋值给全局唯一变量window.target,然后触发这个值的getter,getter中通过Dep.depend方法,这个方法中获取window.target添加到依赖数组中.
 
+### 怎么判断是否需要进行派发更新
+在set中，首先会通过getter.call或者obj[key]获取更新前的值，然后与newVal做比较。如果相等，直接返回，不进行派发更新。否则执行dep.notify。
 
 ## 派发更新
 setter中执行Dep.update通知Watcher类下update方法,Watcher类接收到通知后,会向外界发送通知.
